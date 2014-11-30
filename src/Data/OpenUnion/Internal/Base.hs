@@ -1,6 +1,7 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE CPP #-}
 
 #if MIN_VERSION_base(4,7,0)
@@ -22,7 +23,7 @@ import Data.Typeable
 --
 -- NOTE: exposing the constructor below allows users to bypass the type
 -- system. See 'Data.OpenUnion.unsafeReUnion' for example.
-data Union r v = forall t. (Functor t, Typeable1 t) => Union (t v)
+data Union r v = forall t. (Functor t, Typeable1 t) => Union (t v) deriving Typeable
 
 instance Functor (Union r) where
     {-# INLINE fmap #-}
@@ -31,3 +32,6 @@ instance Functor (Union r) where
 -- | A sum data type, for composing effects
 infixr 1 :>
 data ((a :: * -> *) :> b)
+#if MIN_VERSION_base(4,7,0)
+  deriving Typeable
+#endif
