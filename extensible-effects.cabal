@@ -74,13 +74,13 @@ library
                        Control.Eff.Trace
                        Control.Monad.Free.Reflection
                        Data.OpenUnion
+                       Data.OpenUnion.Internal.Base
 
-  -- Modules included in this library but not exported.
-  other-modules:       Data.OpenUnion.Internal.Base
+
   if impl(ghc >= 7.8.1)
-     other-modules:    Data.OpenUnion.Internal.OpenUnion2
+     exposed-modules:    Data.OpenUnion.Internal.OpenUnion2
   else
-     other-modules:    Data.OpenUnion.Internal.OpenUnion1
+     exposed-modules:    Data.OpenUnion.Internal.OpenUnion1
 
   default-extensions:  Trustworthy
   -- LANGUAGE extensions used by modules in this package.
