@@ -2,7 +2,7 @@ extensible-effects is based on the work
 [Extensible Effects: An Alternative to Monad Transformers](http://okmij.org/ftp/Haskell/extensible/).
 Please read the [paper](http://okmij.org/ftp/Haskell/extensible/exteff.pdf) for details.
 
-[![Build Status](https://travis-ci.org/bfops/extensible-effects.svg?branch=master)](https://travis-ci.org/bfops/extensible-effects)
+[![Build Status](https://travis-ci.org/suhailshergill/extensible-effects.svg?branch=master)](https://travis-ci.org/suhailshergill/extensible-effects)
 
 ## Advantages
 

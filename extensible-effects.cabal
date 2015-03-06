@@ -23,7 +23,7 @@ description:         This package introduces datatypes for typeclass-constrained
 stability:           Experimental
 
 -- URL for the project homepage or repository.
-homepage:            https://github.com/RobotGymnast/extensible-effects
+homepage:            https://github.com/suhailshergill/extensible-effects
 
 -- The license under which the package is released.
 license:             MIT
@@ -143,4 +143,4 @@ test-suite extensible-effects-tests
 
 source-repository head
   type: git
-  location: https://github.com/RobotGymnast/extensible-effects.git
+  location: https://github.com/suhailshergill/extensible-effects
