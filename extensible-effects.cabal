@@ -75,12 +75,7 @@ library
                        Control.Monad.Free.Reflection
                        Data.OpenUnion
                        Data.OpenUnion.Internal.Base
-
-
-  if impl(ghc >= 7.8.1)
-     exposed-modules:    Data.OpenUnion.Internal.OpenUnion2
-  else
-     exposed-modules:    Data.OpenUnion.Internal.OpenUnion1
+                       Data.OpenUnion.Internal.OpenUnion4
 
   default-extensions:  Trustworthy
   -- LANGUAGE extensions used by modules in this package.
