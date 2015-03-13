@@ -74,7 +74,7 @@ module Control.Eff(
                   , run
                   , interpose
                   , handleRelay
-                  , unsafeReUnion
+--                  , unsafeReUnion
                   ) where
 
 import Control.Monad.Free.Reflection as Reflection

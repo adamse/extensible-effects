@@ -26,4 +26,7 @@ runTrace = loop
   where
     loop = freeMap
            return
-           (\u -> prjForce u $ \(Trace s k) -> putStrLn s >> loop (k ()))
+           (\u -> case decomp u of
+                    Right (Trace s k) -> putStrLn s >> loop (k ()))
+
+{- prjForce u $ \(Trace s k) -> putStrLn s >> loop (k ()) -}

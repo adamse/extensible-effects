@@ -54,9 +54,14 @@ lift m = send . inj $ Lift m id
 
 -- | The handler of Lift requests. It is meant to be terminal:
 -- we only allow a single Lifted Monad.
-runLift :: (Monad m, Typeable1 m) => Eff (Lift m :> ()) w -> m w
+runLift :: (Monad m) => Eff (Lift m :> ()) w -> m w
 runLift = loop
-  where
-    loop = freeMap
-           return
-           (\u -> prjForce u $ \(Lift m' k) -> m' >>= loop . k)
+  where loop =
+          freeMap return
+                  (\u ->
+                     case decomp u of
+                       Right (Lift m' k) -> m' >>= loop . k
+                       Left _ -> error "The impossible happened")
+
+{-prjForce u
+(\(Lift m' k) -> m' >>= loop . k)-}
