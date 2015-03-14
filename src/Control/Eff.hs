@@ -79,7 +79,6 @@ module Control.Eff(
 
 import Control.Monad.Free.Reflection as Reflection
 import Data.OpenUnion
-import Data.Typeable
 import Data.Void
 
 #if MIN_VERSION_base(4,7,0)
@@ -117,8 +116,7 @@ run = freeMap id
 -- Therefore, run is a total function if m Val terminates.
 
 -- | Given a request, either handle it or relay it.
-handleRelay :: Typeable1 t
-            => Union (t :> r) v -- ^ Request
+handleRelay :: Union (t :> r) v -- ^ Request
             -> (v -> Eff r a)   -- ^ Relay the request
             -> (t v -> Eff r a) -- ^ Handle the request of type t
             -> Eff r a
@@ -128,8 +126,8 @@ handleRelay u loop h = either passOn h $ decomp u
 
 -- | Given a request, either handle it or relay it. Both the handler
 -- and the relay can produce the same type of request that was handled.
-interpose :: (Typeable1 t, Functor t, Member t r)
-          => Union r v
+interpose :: (Functor t, Member t r) =>
+             Union r v
           -> (v -> Eff r a)
           -> (t v -> Eff r a)
           -> Eff r a
